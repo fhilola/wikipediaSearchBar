@@ -23,11 +23,12 @@ async function searchWikipeida(query) {
 function displayResults(results) {
   // Remove the loading spinner
   searchResults.innerHTML = "";
+  console.log(results)
 
   results.forEach((result) => {
-    const url = `https://en.wikipedia.org/?curid=${results.pageid}`;
+    const url = `https://en.wikipedia.org/?curid=${result.pageid}`;
     const titleLink = `<a href="${url}" target="_blank" rel="noopener">${result.title} </a>`;
-    const urlLink = `<a href="${url} class="result-link" target="_blank" rel="noopener">${url}</a>`;
+    const urlLink = `<a href="${url}" class="result-link" target="_blank" rel="noopener">${url}</a>`;
 
     const resultItme = document.createElement("div");
     resultItme.className = "result-item";
